@@ -1,21 +1,23 @@
 # Navid-S-B
 # 3-07-2020
-# Webscraping script to access Google RIS using API Key to gather extra but 
-# important content not found in the original RespAPI json file
+"""
+Webscraping script to access Google RIS using API Key to gather extra but  
+important content not obtainable through the JSON file from the API.
+"""
 
-# Import webscraping libraries
 from bs4 import BeautifulSoup
 import requests
 import re
+import time
 
-class extra_info:
+class scrape_webpage:
 
     # Adjust link given
     def __init__(self, image_url):
         
         self.image_url = image_url
-        self.api_key = "29a07d0e5f60d19ed0715a8910049126ae62bbb3a49ecfb60957873e7e0c9248"
-        # Editing link given in for webpage search
+        self.api_key = "122183b946715ec471c43281ef4eb84a815fe30417aaf3e132336ed761aa4443"
+        # Editing link given in for webpage search using REGEX
         p = re.compile('/')
         self.new_url = p.sub("%2F", self.image_url)
         p = re.compile(':')
@@ -52,9 +54,17 @@ class extra_info:
         result = p.sub("", result)
         return result
 
-def lambda_handler(event, context):
-# TODO implement
-    return {
-        'statusCode': 200,
-        'body': json.dumps('Hello from Lambda!')
-    }
+"""
+# Testing code, algorithm time varies, sometimes quick, sometimes not (~15s).
+# Minor optimisations maybe required, or the server has slowed down.
+# Could add this on with TinEye as an option since TinEye does not have
+# this particular functionality.
+
+test_link = None
+time_1 = time.perf_counter()
+extra_image_info = scrape_webpage('test_link')
+print(extra_image_info.related_search_term())
+print(extra_image_info.get_no_total_results())
+time_2 = time.perf_counter()
+print(time_2-time_1)
+"""
