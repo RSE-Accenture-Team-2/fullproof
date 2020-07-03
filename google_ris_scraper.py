@@ -15,7 +15,7 @@ class RIS_scraper:
     def __init__(self, image_url):
         
         self.image_url = image_url
-        self.search_url = ' https://www.google.com/searchbyimage?&image_url={}'.format(image_url)
+        self.search_url = 'https://www.google.com/searchbyimage?&image_url={}'.format(image_url)
 
     # Get number of results
     # Can't seem to extract the number of results information using soup.find or soup.find_all?
@@ -23,8 +23,9 @@ class RIS_scraper:
 
         response = requests.get(self.search_url)
         soup = BeautifulSoup(response.text,'html.parser')
-        print(soup)
+        no_results = soup.find(id="result-stats")
+        print(no_results)
 
 
-webpage = RIS_scraper('3iom3142cnb81rlnt6w4mtlr-wpengine.netdna-ssl.com/wp-content/uploads/2019/04/fig1-6.jpg')
+webpage = RIS_scraper('cuyastro.files.wordpress.com/2020/04/hubble-at-30_heic2007a.jpg?w=1024')
 webpage.get_no_results()
