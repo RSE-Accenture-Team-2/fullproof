@@ -22,7 +22,7 @@ class scraper:
     
     def get_no_results(self):
 
-        response = requests.get("https://tineye.com/search/a13b0dabbcfebd8c71ecdbcd788e3aff920d36f9?page=1")
+        response = requests.get(self.new_url)
         soup = BeautifulSoup(response.text,'html.parser')
         print(soup)
 
