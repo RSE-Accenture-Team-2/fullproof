@@ -16,7 +16,7 @@ class scrape_webpage:
     def __init__(self, image_url):
         
         self.image_url = image_url
-        self.api_key = "122183b946715ec471c43281ef4eb84a815fe30417aaf3e132336ed761aa4443"
+        self.api_key = "add_key"
         # Editing link given in for webpage search using REGEX
         p = re.compile('/')
         self.new_url = p.sub("%2F", self.image_url)
