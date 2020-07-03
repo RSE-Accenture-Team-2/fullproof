@@ -1,4 +1,4 @@
-# Navid Bhuiyan 
+# Navid-S-B
 # 3-07-2020
 # Webscraping script to access Google RIS using API Key to gather extra but 
 # important content not found in the original RespAPI json file
