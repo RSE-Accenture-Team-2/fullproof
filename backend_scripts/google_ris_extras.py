@@ -8,7 +8,7 @@ important content not obtainable through the JSON file from the API.
 from bs4 import BeautifulSoup
 import requests
 import re
-import time
+# import time
 
 class scrape_webpage:
 
