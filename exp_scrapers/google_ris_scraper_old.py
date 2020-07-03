@@ -1,4 +1,4 @@
-# Navid Bhuiyan 
+# Navid-S-B 
 # 3-07-2020
 # Webscraping script to access google reverse search
 # Currently need to extract number of results data

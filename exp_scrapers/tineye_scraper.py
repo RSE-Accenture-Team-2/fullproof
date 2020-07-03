@@ -1,4 +1,4 @@
-# Navid Bhuiyan 
+# Navid-S-B
 # 3-07-2020
 # Webscraping script to access TinEye
 # UPDATE: Same problem, cannot download whole HTML script to scrape webpage.
