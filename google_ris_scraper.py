@@ -2,6 +2,8 @@
 # 3-07-2020
 # Webscraping script to access google reverse search
 # Currently need to extract number of results data
+# UPDATE: not a long term solution, TinEye API has to be better.
+# not using this.
 
 
 # Import webscraping libraries
@@ -19,13 +21,14 @@ class RIS_scraper:
 
     # Get number of results
     # Can't seem to extract the number of results information using soup.find or soup.find_all?
+    # When I used egrep to find if the html downloaded by soup contains the result, it did not come at all?
     def get_no_results(self):
 
         response = requests.get(self.search_url)
         soup = BeautifulSoup(response.text,'html.parser')
-        no_results = soup.find(id="result-stats")
-        print(no_results)
+        # no_results = soup.find(id="result-stats")
+        print(soup)
 
 
-webpage = RIS_scraper('cuyastro.files.wordpress.com/2020/04/hubble-at-30_heic2007a.jpg?w=1024')
+webpage = RIS_scraper('https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528_1280.jpg')
 webpage.get_no_results()
