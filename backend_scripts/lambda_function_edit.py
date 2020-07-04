@@ -1,3 +1,8 @@
+# Navid-S-B
+# lambda handler
+# Has basic error checking etc
+# Need to add better error checks
+
 import json
 import serpapi_script as ss
 
