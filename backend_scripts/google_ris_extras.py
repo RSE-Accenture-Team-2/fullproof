@@ -55,7 +55,7 @@ class scrape_webpage:
         return result
 
 """
-# Testing code, algorithm time varies, sometimes quick, sometimes not (~15s).
+# Testing code, algorithm time varies, sometimes quick, sometimes not (~4s).
 # Minor optimisations maybe required, or the server has slowed down.
 # Could add this on with TinEye as an option since TinEye does not have
 # this particular functionality.
