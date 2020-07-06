@@ -17,10 +17,9 @@ class Getlinks extends React.Component {
                 "url": input
             }
 
-            const proxyurl = "https://cors-anywhere.herokuapp.com/";
             const url = 'https://lmm2b8jjoe.execute-api.ap-southeast-2.amazonaws.com/scrape'; // site that doesn’t send Access-Control-*
 
-            fetch(proxyurl + url, {
+            fetch(url, {
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: {
