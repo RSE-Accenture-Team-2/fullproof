@@ -15,7 +15,7 @@ class serpapi_webpage:
     def __init__(self, image_url):
         
         self.image_url = image_url
-        self.api_key = "9103e042e9ebe7ee57d0f91a3a457519932ea82aaf69a778f57721b215c26ff4"
+        self.api_key = "add_key"
         # Editing link given in for webpage search using REGEX
         p = re.compile('/')
         self.new_url = p.sub("%2F", self.image_url)

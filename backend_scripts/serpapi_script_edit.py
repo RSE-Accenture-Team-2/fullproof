@@ -43,7 +43,7 @@ class serpapi_webpage:
     def get_related_search_term(self):
         
         # Gather html code containing number of searches
-        result = str(self.soup.find(class_ = 'fKDtNb'))
+        result = str(self.soup.find(class_ = "fKDtNb"))
         # Use REGEX to get desirable string
         p = re.compile('.*italic">')
         result = p.sub("", result)
