@@ -6,7 +6,7 @@ for executing the SerpAPI script in the background.
 
 It has simple error checking measures to ensure smooth execution.
 
-Need to make it look for beautiful.
+Need to make it look more beautiful.
 """
 
 import json
