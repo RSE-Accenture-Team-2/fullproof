@@ -1,0 +1,13 @@
+{
+  "name": "Fullproof",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "An image authentication tool to combat disinformation.",
+  "icons": {
+    "128": "icon128.png"
+  },
+  "browser_action": {
+    "default_icon": "icon128.png",
+    "default_popup": "popup.html"
+  }
+}
