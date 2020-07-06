@@ -6,10 +6,6 @@
 Webscraping script to find top 3-4 relevant terms from title knowledge graph title or image results
 """
 
-from bs4 import BeautifulSoup
-from urllib import request
-import re
-
 from serpapi.google_search_results import GoogleSearchResults
 
 class mostFreqTerm():

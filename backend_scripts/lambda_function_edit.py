@@ -12,6 +12,7 @@ Need to make it look more beautiful.
 import json
 import serpapi_script as ss
 
+# Check if search link is inputted
 def url_error(event):
 
     # Checks for inputted google search links
@@ -19,6 +20,24 @@ def url_error(event):
         return True
     else:
         return False
+
+# Response if invalid image link is inputted
+def url_error_return(event):
+   
+    image_info = {
+            "error": "Yes",
+            "error_type": "Invalid Image URL",
+            "related_search_term": "None",
+            "total_no_results": "None",
+            "top_links": "None",
+            "related_key_words": "None"
+    } 
+
+    return {
+        'statusCode': 500,
+        'body': json.dumps(image_info)
+    }
+
 
 def execute_code(event):
     
@@ -55,20 +74,6 @@ def lambda_handler(event, context):
     
     # If the url is a google search link
     if url_error(event):
-
-        image_info = {
-            "error": "Yes",
-            "error_type": "Invalid Image URL",
-            "related_search_term": "None",
-            "total_no_results": "None",
-            "top_links": "None",
-            "related_key_words": "None"
-        } 
-
-        return {
-            'statusCode': 500,
-            'body': json.dumps(image_info)
-        }
-
+        return url_error_return(event)
     else:
         return execute_code(event)
