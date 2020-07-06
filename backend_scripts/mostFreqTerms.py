@@ -3,7 +3,7 @@
 # 5/07/2020
 
 """
-Webscraping script to find top 3-4 relevant terms from image results
+Webscraping script to find top 3-4 relevant terms from title knowledge graph title or image results
 """
 
 from bs4 import BeautifulSoup
@@ -18,7 +18,9 @@ class mostFreqTerm():
         "image_url": None,
         "api_key": None
     }
+
     image_results = {}
+
     def __init__(self):
         
         image_url = "https://i.imgur.com/5bGzZi7.jpg"
@@ -30,8 +32,28 @@ class mostFreqTerm():
         self.params["api_key"] = api_key
         client = GoogleSearchResults(self.params)
         results = client.get_dict()
-        self.image_results = results['image_results']                    
-           
+        self.image_results = results['image_results']
 
+        word = []
+        word_counter = {}
+        for i in range(len(self.image_results)):
+            for key, value in self.image_results[i].items():
+                if(key == "title"):
+                    word = word + value.split()
+        
+        for i in word:
+            if i == '...':
+                word.remove(i)
+
+        for i in word:
+            if i in word_counter:
+                word_counter[i]+= 1
+            else:
+                word_counter[i] = 1
+
+        common_terms = sorted(word_counter, key = word_counter.get, reverse = True)
+        print(common_terms[:3])
+  
+           
 
 hello = mostFreqTerm()
