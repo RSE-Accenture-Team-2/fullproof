@@ -30,16 +30,7 @@ class mostFreqTerm():
         self.params["api_key"] = api_key
         client = GoogleSearchResults(self.params)
         results = client.get_dict()
-        self.image_results = results['image_results']
-
-        for i in range(len(self.image_results)):
-            for key, value in self.image_results[i].items():
-                print("key and value is")
-                print(key)
-                print(value)
-                if(key == "title"):
-                    print(value)
-                    break                        
+        self.image_results = results['image_results']                    
            
 
 
