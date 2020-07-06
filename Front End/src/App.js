@@ -68,6 +68,7 @@ class App extends React.Component {
               name="toggle-2"
               onToggle={e => console.log("onToggle2", e.target.checked)}
             />
+            {/* window.location.href */}
           </div>
           <hr />
         </div>
