@@ -16,7 +16,7 @@ class Logo extends React.Component {
   }
 }
 
-class Dropzone extends React.Component {
+class DropForm extends React.Component {
   render() {
     return (
       <Grommet>
@@ -88,7 +88,7 @@ class App extends React.Component {
         </div>
 
         <div className="block dropper">
-          <Dropzone />
+          <DropForm />
         </div>
 
         {/* <div>
