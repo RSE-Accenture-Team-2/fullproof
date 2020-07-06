@@ -9,6 +9,7 @@ This file always returns an output, but varies the output
 based on the link given.
 """
 
+
 import json
 import serpapi_script as ss
 
