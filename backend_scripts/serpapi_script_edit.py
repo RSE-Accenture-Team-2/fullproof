@@ -50,9 +50,15 @@ class serpapi_webpage:
         p = re.compile('<.*')
         result = p.sub("", result)
         return result
+    
+    def get_related_keywords(self):
 
+"""
 image_link = "https://pyxis.nymag.com/v1/imgs/3b6/d67/84797c3613ee95604b9262ce0823c67a2e-21-selena-gomez.rsquare.w1200.jpg"
 webpage = serpapi_webpage(image_link)
 result1 = webpage.get_no_total_results()
 result2 = webpage.get_related_search_term()
 print(result1, ', ', result2)
+"""
+
+
