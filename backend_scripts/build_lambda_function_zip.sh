@@ -5,8 +5,9 @@
 
 virtualenv -p /usr/bin/python3.8 temp_soup
 source temp_soup/bin/activate
-pip install beautifulsoup4
-pip install lxml
+pip3 install beautifulsoup4
+pip3 install lxml
+pip3 install google-search-results
 cp lambda_function.py temp_soup/lib/python3.8/site-packages/
 cp serpapi_script.py temp_soup/lib/python3.8/site-packages/
 cp error_return_script.py temp_soup/lib/python3.8/site-packages/
