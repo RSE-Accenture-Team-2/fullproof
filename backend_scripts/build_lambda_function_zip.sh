@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 # Navid-S-B
 # Shell script to build on the lambda_function.zip 
 # in my local library.
