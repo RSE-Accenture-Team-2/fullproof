@@ -8,8 +8,6 @@ the lambda_function.py.
 This file always returns an output, but varies the output
 based on the link given.
 """
-
-
 import json
 import serpapi_script as ss
 
@@ -17,7 +15,7 @@ import serpapi_script as ss
 def url_error(event):
 
     # Checks for inputted google search links
-    if 'google' in event['image_url']:
+    if 'google' or 'bing' in event['image_url']:
         return True
     else:
         return False
@@ -30,7 +28,7 @@ def url_error_return(event):
             "error_type": "Invalid Image URL",
             "related_search_term": "None",
             "total_no_results": "None",
-            "top_links": "None",
+            "top_urls": "None",
             "related_key_words": "None"
     } 
 
@@ -48,7 +46,7 @@ def execute_code(event):
         "error_type": "None",
         "related_search_term": "None",
         "total_no_results": "None",
-        "top_links": "None",
+        "top_urls": "None",
         "related_key_words": "None"
     }
 
@@ -57,6 +55,7 @@ def execute_code(event):
         test_image = ss.serpapi_webpage(event["image_url"])
         image_info["related_search_term"] = test_image.get_related_search_term()
         image_info["total_no_results"] = test_image.get_no_total_results()
+        image_info["top_urls"] = test_image.top_google_urls()
         return {
             'statusCode': 200,
             'body': json.dumps(image_info)
