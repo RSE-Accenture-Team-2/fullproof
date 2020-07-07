@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Navid-S-B
 # Shell script to build on the lambda_function.zip 
 # in my local library.
@@ -11,8 +11,9 @@ pip3 install google-search-results
 cp lambda_function.py temp_soup/lib/python3.8/site-packages/
 cp serpapi_script.py temp_soup/lib/python3.8/site-packages/
 cp error_return_script.py temp_soup/lib/python3.8/site-packages/
-cd temp_soup/lib/python3.6/site-packages/
+cd temp_soup/lib/python3.8/site-packages/
 zip -r9 lambda_function.zip *
 mv lambda_function.zip /home/navid_b/fullproof/backend_scripts
 cd /home/navid_b/fullproof/backend_scripts
+deactivate
 rm -r temp_soup
