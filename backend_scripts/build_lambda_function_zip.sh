@@ -1,4 +1,7 @@
 #!/bin/sh
+# Navid-S-B
+# Shell script to build on the lambda_function.zip 
+# in my local library.
 
 virtualenv -p /usr/bin/python3.8 temp_soup
 source temp_soup/bin/activate
