@@ -15,7 +15,7 @@ import serpapi_script as ss
 def url_error(event):
 
     # Checks for inputted google search links
-    if 'google' or 'bing' in event['image_url']:
+    if 'google' in event['image_url']:
         return True
     else:
         return False
