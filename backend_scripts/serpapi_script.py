@@ -6,36 +6,31 @@ important content not obtainable through the JSON file from the API.
 """
 
 from bs4 import BeautifulSoup
-from urllib import request
+import urllib.request
+import json
 import re
-from serpapi.google_search_results import GoogleSearchResults
 
 class serpapi_webpage:
 
     # Adjust link given
     def __init__(self, image_url):
         
-        self.image_url = image_url
-        self.api_key = "9103e042e9ebe7ee57d0f91a3a457519932ea82aaf69a778f57721b215c26ff4"
+        # Enter API key
+        api_key = "api_key"
         # Editing link given in for webpage search using REGEX
         p = re.compile('/')
-        self.new_url = p.sub("%2F", self.image_url)
+        image_url = p.sub("%2F", image_url)
         p = re.compile(':')
-        self.new_url = p.sub("%3A", self.new_url)
-        self.new_url = "https://serpapi.com/search.html?engine=google_reverse_image&image_url={}&api_key={}".format(self.new_url, self.api_key)
+        image_url = p.sub("%3A", image_url)
+        new_url = "https://serpapi.com/search.html?engine=google_reverse_image&image_url={}&api_key={}".format(image_url, api_key)
         # Optimization made -> load request and soup before analysis
-        self.response = request.urlopen(self.new_url).read()
-        self.soup = BeautifulSoup(self.response,'html.parser')
-        # Load JSon File from SerpAPI for analysis
-        self.paramaters = {
-
-            "engine": "google_reverse_image",
-            "image_url": self.image_url,
-            "api_key": self.api_key
-        }
-        self.client = GoogleSearchResults(self.paramaters)
-        self.json_results = self.client.get_dict()
-        self.image_results = self.json_results['image_results']        
+        response = urllib.request.urlopen(new_url).read()
+        self.soup = BeautifulSoup(response,'html.parser')
+        # Saving JSON output from API
+        json_link = "https://serpapi.com/search.json?engine=google_reverse_image&google_domain=google.com&image_url={}&api_key={}".format(image_url, api_key)
+        response = urllib.request.urlopen(json_link)
+        json_response = json.loads(response.read().decode('utf-8'))
+        self.image_results_json = json_response['image_results']
 
     def get_no_total_results(self):
 
@@ -62,14 +57,17 @@ class serpapi_webpage:
         return result
     
     def top_google_urls(self):
+
         url_list = []
-        for i in range(len(self.image_results)):
-            for key, value in self.image_results[i].items():
+        for i in range(len(self.image_results_json)):
+            for key, value in self.image_results_json[i].items():
                 if(key == "link"):
                     url_list.append(value)
-        
+            
+            
         return url_list
     
+
     def get_related_keywords(self):
         pass
 
