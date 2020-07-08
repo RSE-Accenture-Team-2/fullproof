@@ -57,7 +57,8 @@ class serpapi_webpage:
         return result
     
     def top_google_urls(self):
-
+        
+        # Go through dictionary and loop through for first page links
         url_list = []
         for i in range(len(self.image_results_json)):
             for key, value in self.image_results_json[i].items():
@@ -71,10 +72,12 @@ class serpapi_webpage:
     def get_related_keywords(self):
         pass
 
+"""
+Quick testing:
 
 image_link = "https://pyxis.nymag.com/v1/imgs/3b6/d67/84797c3613ee95604b9262ce0823c67a2e-21-selena-gomez.rsquare.w1200.jpg"
 webpage = serpapi_webpage(image_link)
 url_list = webpage.top_google_urls()
 print(url_list)
-
+"""
 
