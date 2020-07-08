@@ -17,11 +17,13 @@ def lambda_handler(event, context):
         data = { 'url' : url }
         base_url = 'http://fotoforensics.com'
         response = requests.post(f'{ base_url }/upload-url.php',data=data)
+        print(response)
         soup = BeautifulSoup(response.text, 'html.parser')
         img_endpoint = soup.find(id="MainImg")
         img_endpoint = img_endpoint.attrs['src']
         img_endpoint = str(img_endpoint).split("&")[0] + "&fmt=ela"
         dns = base_url + img_endpoint
+        print(dns)
         return {
         "statusCode": 200,
         "body": { 'ELAlink' : dns }
