@@ -3,9 +3,7 @@ import requests
 import json
 
 def lambda_handler(event, context):
-    jsondata = json.loads(event["body"])
-    url = jsondata["url"]
-    data = { 'url' : url }
+    data = { 'url' : event['body']['url'] }
     base_url = 'http://fotoforensics.com'
     response = requests.post(f'{ base_url }/upload-url.php',data=data)
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -16,4 +14,5 @@ def lambda_handler(event, context):
     return {
     "statusCode": 200,
     "body": json.dumps({ "ELAlink" : dns })
-}
+    }
+
