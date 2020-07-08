@@ -11,18 +11,16 @@ def lambda_handler(event, context):
             event = str(dumped)
 
         jsondata = json.loads(str(event))
-        print(type(jsondata))
-        print(jsondata)
-
         url = jsondata['body']['url']
-        # data = { 'url' : url }
+        data = { 'url' : url }
         base_url = 'http://fotoforensics.com'
 
-        url = base_url
-        full_url = url + '?url=' + url
-        response = urllib.request.urlopen(full_url)
-
         # response = requests.post(f'{ base_url }/upload-url.php',data=data)
+        # have to uses encoded bytes in urllib but can't use urllib encoded on links because of certain characters
+        urlvalues = '?url=' + str(url)
+        byte_params = bytes(urlvalues, 'utf-8')
+
+        response = urllib.request.urlopen(base_url, byte_params)
         print(response)
 
         soup = BeautifulSoup(response, 'html.parser')
