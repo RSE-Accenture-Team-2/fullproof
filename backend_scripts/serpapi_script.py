@@ -16,7 +16,7 @@ class serpapi_webpage:
     def __init__(self, image_url):
         
         # Enter API key
-        api_key = "api_key"
+        api_key = "add_key"
         # Editing link given in for webpage search using REGEX
         p = re.compile('/')
         image_url = p.sub("%2F", image_url)
@@ -63,9 +63,7 @@ class serpapi_webpage:
         for i in range(len(self.image_results_json)):
             for key, value in self.image_results_json[i].items():
                 if(key == "link"):
-                    url_list.append(value)
-            
-            
+                    url_list.append(value) 
         return url_list
     
 
