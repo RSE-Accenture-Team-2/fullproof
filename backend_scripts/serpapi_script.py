@@ -16,7 +16,7 @@ class serpapi_webpage:
     def __init__(self, image_url):
         
         # Enter API key
-        api_key = "add_key"
+        api_key = "b5cb18a6115e0feb96cadbf0e262de1fd589f2660b51f92b101d4cfd7ef2f7f8"
         # Editing link given in for webpage search using REGEX
         p = re.compile('/')
         image_url = p.sub("%2F", image_url)
@@ -68,14 +68,40 @@ class serpapi_webpage:
     
 
     def get_related_keywords(self):
-        pass
+        return 'None'
 
+
+# Old get_related_keywords_code
 """
-Quick testing:
+# Use textblob to remove noun phrases from the titles and snippets of 
+# google reverse image search results.
+extractor = ConllExtractor()
+phrases_with_nouns = []
+for i in range(len(self.image_results_json)):
+    for key, value in self.image_results_json[i].items():
+        if (key == "title" or key == 'snippet'):
+            # Extract phrases containing nouns
+            blob = TextBlob(value, np_extractor=extractor)
+            # Convert WordList obj to a list
+            phrases_with_nouns += list(blob.noun_phrases)
 
-image_link = "https://pyxis.nymag.com/v1/imgs/3b6/d67/84797c3613ee95604b9262ce0823c67a2e-21-selena-gomez.rsquare.w1200.jpg"
-webpage = serpapi_webpage(image_link)
-url_list = webpage.top_google_urls()
-print(url_list)
+# Split phrases to isolate nouns and remove non-word characters
+nouns = []
+for k in phrases_with_nouns:
+    for i in k.split():
+        if i in ["|",":","'",'"','%','?','(',')']:
+            continue
+        nouns.append(i)
+
+# Utilise a hash map to count most frequent nouns
+word_counter = {}
+for i in nouns:
+    if i in word_counter:
+        word_counter[i]+= 1
+    else:
+        word_counter[i] = 1
+
+# Sort words by count and get top five terms
+common_terms = sorted(word_counter, key = word_counter.get, reverse = True)
+return common_terms[0:5]
 """
-
