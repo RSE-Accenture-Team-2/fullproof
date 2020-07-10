@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, Form, FormField, ThemeContext } from "grommet";
 import { Dropzone } from "./Dropzone";
 import { fileUpload } from "../utils";
-import Getlinks from "../components/Getlinks/Getlinks.js";
+import GetImageInfo from "../components/ReverseInfo/ReverseInfo.js";
 
 export const MyForm = () => {
   const [files, setFiles] = useState([]);
@@ -19,16 +19,21 @@ export const MyForm = () => {
   };
 
   const handleSubmit = event => {
-    event.preventDefault();
 
+    console.log(event);
+    event.preventDefault();
     let formlink = document.getElementById("LinkURL").value;
-    console.log(formlink)
-    let post = new Getlinks()
-    post.state.value = formlink;
-    post.render();
+    console.log("The final content is", GetImageInfo(formlink));
+
+
+
+
+
     // You will need to update ../utils/fileUpload with the correct url for
     // where the data will be sent to.
     fileUpload({ files });
+
+
   };
 
   return (

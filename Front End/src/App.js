@@ -33,6 +33,8 @@ class DropForm extends React.Component {
 class App extends React.Component {
   render() {
 
+
+
     return (
       <div className="appcontent">
         <div className="block">
@@ -97,7 +99,8 @@ class App extends React.Component {
         <hr />
 
         <div className="block italic">
-          <p>This image has been digitally manipulated and has a suspicious history, would you like to see the <a href="google.com">original?</a></p>
+          {/* <p>This image has been digitally manipulated and has a suspicious history, would you like to see the <a href="google.com">original?</a></p> */}
+
         </div>
       </div>
     );
