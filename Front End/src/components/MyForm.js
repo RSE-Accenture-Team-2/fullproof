@@ -19,7 +19,7 @@ export const MyForm = () => {
   };
 
   const handleSubmit = event => {
-
+    document.getElementById("#imagecontent").style.display = "block";
     event.preventDefault();
     let formlink = document.getElementById("LinkURL").value;
 

@@ -100,34 +100,37 @@ class App extends React.Component {
         </div> */}
         <hr />
 
-        <div id="imageview" className="block italic">
-          {/* // let ImageContent = imageresult.related_search_term;
+        <div id='imagecontent'>
+
+          <div id="imageview" className="block italic">
+            {/* // let ImageContent = imageresult.related_search_term;
     // let RelatedLinks = imageresult.top_urls;
     // let numberofResults = imageresult.total_no_results;
     // let relatedWords = imageresult.related_key_words; */}
 
-          <h2>Reverse Search</h2>
-          <hr></hr>
-          <h3 id="ImageContent">Image</h3>
-          <hr></hr>
-          <h3>Related Words</h3>
-          <ul id="relatedWords"> </ul>
-          <hr></hr>
-          <h3>Related Links</h3>
-          <hr></hr>
-          <ul id="linklist"></ul>
+            <h2>Reverse Search</h2>
+            <hr></hr>
+            <h3 id="ImageContent">Image</h3>
+            <hr></hr>
+            <h3>Related Words</h3>
+            <ul id="relatedWords"> </ul>
+            <hr></hr>
+            <h3>Related Links</h3>
+            <hr></hr>
+            <ul id="linklist"></ul>
+          </div>
+
+
+          <div id="imageview" className="block italic">
+            <h2>Meta Data</h2>
+            <hr></hr>
+
+          </div>
+
         </div>
 
 
-        <div id="imageview" className="block italic">
-          <h2>Meta Data</h2>
-          <hr></hr>
-
-        </div>
-
-
-
-      </div>
+      </div >
     );
   }
 }
