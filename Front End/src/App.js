@@ -117,6 +117,16 @@ class App extends React.Component {
           <hr></hr>
           <ul id="linklist"></ul>
         </div>
+
+
+        <div id="imageview" className="block italic">
+          <h2>Meta Data</h2>
+          <hr></hr>
+
+        </div>
+
+
+
       </div>
     );
   }
