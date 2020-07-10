@@ -68,40 +68,50 @@ class serpapi_webpage:
     
 
     def get_related_keywords(self):
-        return 'None'
+        # Collect words and characters from search snippets and titles
+        words = []
+        for i in range(len(self.image_results_json)):
+            for key, value in self.image_results_json[i].items():
+                if (key == "title" or key == 'snippet'):
+                    words = words + value.split()
 
+        # Word filter (this is only implemented as a concept)
+        # There is another version where this uses textblob to only detect nouns
+        # Remove characters and common conjunction
+        for word in words:
+            word_lower = word.lower()
+            # Remove common characters
+            for char in ("|",":","'",'"','%','?','(',')','...','.', '-'):
+                if word == char:
+                    words.pop(words.index(word))
+            # Remove common conjunctions
+            for conj in ('and', 'nor', 'but', 'yet', 'so' ):
+                if word_lower == conj:
+                    words.pop(words.index(word))
+            # Remove common prepositions
+            for prep in ('above', 'across', 'against', 'along', 'among', 'around', 'at', 'before', 
+            'behind', 'below', 'beneath', 'beside', 'between', 'by', 'down', 'from', 'in', 'into', 
+            'near', 'of', 'off', 'on', 'to', 'toward', 'under', 'upon', 'within'):
+                if word_lower == prep:
+                    words.pop(words.index(word))
+        
+        # Remove common verbs, articles, pronouns i.e. second filtration
+        for word2 in words:
+            word2_lower = word2.lower()
+            # Remove common verbs, articles, and prepositions
+            for mixed_word in ('are', 'is', 'a', 'an', 'the', 'they', 'for'):
+                if word2_lower == mixed_word:
+                    words.pop(words.index(word2))
+        
+        # Utilise a hash map to count most frequent nouns
+        word_counter = {}
+        for i in words:
+            if i in word_counter:
+                word_counter[i] += 1
+            else:
+                word_counter[i] = 1
 
-# Old get_related_keywords_code
-"""
-# Use textblob to remove noun phrases from the titles and snippets of 
-# google reverse image search results.
-extractor = ConllExtractor()
-phrases_with_nouns = []
-for i in range(len(self.image_results_json)):
-    for key, value in self.image_results_json[i].items():
-        if (key == "title" or key == 'snippet'):
-            # Extract phrases containing nouns
-            blob = TextBlob(value, np_extractor=extractor)
-            # Convert WordList obj to a list
-            phrases_with_nouns += list(blob.noun_phrases)
-
-# Split phrases to isolate nouns and remove non-word characters
-nouns = []
-for k in phrases_with_nouns:
-    for i in k.split():
-        if i in ["|",":","'",'"','%','?','(',')']:
-            continue
-        nouns.append(i)
-
-# Utilise a hash map to count most frequent nouns
-word_counter = {}
-for i in nouns:
-    if i in word_counter:
-        word_counter[i]+= 1
-    else:
-        word_counter[i] = 1
-
-# Sort words by count and get top five terms
-common_terms = sorted(word_counter, key = word_counter.get, reverse = True)
-return common_terms[0:5]
-"""
+        # Get top 5 related keywords
+        related_keywords = sorted(word_counter, key = word_counter.get, reverse = True)
+        related_keywords = related_keywords[:5]
+        return related_keywords
