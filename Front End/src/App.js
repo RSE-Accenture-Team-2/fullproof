@@ -35,6 +35,8 @@ class App extends React.Component {
 
 
 
+
+
     return (
       <div className="appcontent">
         <div className="block">
@@ -98,9 +100,22 @@ class App extends React.Component {
         </div> */}
         <hr />
 
-        <div className="block italic">
-          {/* <p>This image has been digitally manipulated and has a suspicious history, would you like to see the <a href="google.com">original?</a></p> */}
+        <div id="imageview" className="block italic">
+          {/* // let ImageContent = imageresult.related_search_term;
+    // let RelatedLinks = imageresult.top_urls;
+    // let numberofResults = imageresult.total_no_results;
+    // let relatedWords = imageresult.related_key_words; */}
 
+          <h2>Reverse Search</h2>
+          <hr></hr>
+          <h3 id="ImageContent">Image</h3>
+          <hr></hr>
+          <h3>Related Words</h3>
+          <ul id="relatedWords"> </ul>
+          <hr></hr>
+          <h3>Related Links</h3>
+          <hr></hr>
+          <ul id="linklist"></ul>
         </div>
       </div>
     );

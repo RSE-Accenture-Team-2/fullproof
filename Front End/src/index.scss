@@ -10,6 +10,21 @@ body {
 
 };
 
+ul {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-gap: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
 hr {
   height: 1px;
   background-color: rgba(240, 240, 240);

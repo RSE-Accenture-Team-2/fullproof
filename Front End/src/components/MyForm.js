@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, Form, FormField, ThemeContext } from "grommet";
 import { Dropzone } from "./Dropzone";
 import { fileUpload } from "../utils";
-import GetImageInfo from "../components/ReverseInfo/ReverseInfo.js";
+import reversedata from "../components/ReverseInfo/ReverseInfo.js";
 
 export const MyForm = () => {
   const [files, setFiles] = useState([]);
@@ -20,14 +20,13 @@ export const MyForm = () => {
 
   const handleSubmit = event => {
 
-    console.log(event);
     event.preventDefault();
     let formlink = document.getElementById("LinkURL").value;
-    console.log("The final content is", GetImageInfo(formlink));
 
+    reversedata(formlink);
 
-
-
+    // console.log(ReverseImageData["related_search_term"]);
+    // console.log("This image is a: ", ReverseImageData.related_search_term);
 
     // You will need to update ../utils/fileUpload with the correct url for
     // where the data will be sent to.
