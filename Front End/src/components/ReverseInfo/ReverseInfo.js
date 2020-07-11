@@ -9,11 +9,11 @@ async function reversedata(input) {
 
     //Reverse Search Content
     let content = document.getElementById("ImageContent");
-    content.innerHTML = (ImageContent + ", " + numberofResults + "results.");
+    content.innerHTML = (ImageContent + ", " + numberofResults + " results.");
 
     //Related Words
     let related = document.getElementById("relatedWords");
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < relatedWords.length; i++) {
         let text = relatedWords[i];
         console.log(text);
         let a = document.createElement("li");
@@ -32,11 +32,14 @@ async function reversedata(input) {
         let text = RelatedLinks[i];
         console.log(text);
         let b = document.createElement("li");
-
         let a = document.createElement("a");
-        a.href = "#" + text;
+        a.href = text;
         a.textContent = text;
+        a.rel = "noopener noreferrer";
+        a.target = "_blank";
+
         b.append(a);
+        // b.onclick = window.open(text);
         linkDiv.append(b);
     }
 
