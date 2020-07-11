@@ -1,19 +1,26 @@
 async function reversedata(input) {
+
     const imageresult = await GetImageInfo(input);
+
     let ImageContent = imageresult.related_search_term;
     let numberofResults = imageresult.total_no_results;
     let relatedWords = imageresult.related_key_words;
+    let RelatedLinks = imageresult.top_urls;
 
-    // numResults
-    // relatedWords
-
-    //Reverse Search Content
+    let related = document.getElementById("relatedWords");
+    let linkDiv = document.getElementById("linklist");
     let content = document.getElementById("ImageContent");
+
+    //Reverse Search Content -------------------------
     content.innerHTML = (ImageContent + ", " + numberofResults + " results.");
 
-    //Related Words
-    let related = document.getElementById("relatedWords");
-    for (let i = 0; i < relatedWords.length; i++) {
+    //Related Words -------------------------
+    while (related.firstChild) {
+        related.removeChild(related.firstChild);
+    }
+
+    let listSize = 4;
+    for (let i = 0; i < listSize; i++) {
         let text = relatedWords[i];
         console.log(text);
         let a = document.createElement("li");
@@ -22,12 +29,11 @@ async function reversedata(input) {
         related.append(a);
     }
 
-    // Related Links
-    let RelatedLinks = imageresult.top_urls;
-    console.log("Links is ", RelatedLinks);
-    let linkDiv = document.getElementById("linklist");
+    // Related Links -------------------------
+    while (linkDiv.firstChild) {
+        linkDiv.removeChild(linkDiv.firstChild);
+    }
 
-    let listSize = 5;
     for (let i = 0; i < listSize; i++) {
         let text = RelatedLinks[i];
         console.log(text);
@@ -39,14 +45,8 @@ async function reversedata(input) {
         a.target = "_blank";
 
         b.append(a);
-        // b.onclick = window.open(text);
         linkDiv.append(b);
     }
-
-
-    // let infoDIV = document.getElementById("imageview");
-
-
     return imageresult;
 }
 
@@ -68,6 +68,11 @@ async function GetImageInfo(input) {
         .then(response => response.json())
         .catch(() => console.log("Can’t access " + url + " response. ERROR"))
 
+
+    if (typeof imageData == "undefined") {
+        console.log("The result of reverse search fetch is broken");
+        return null;
+    }
     return imageData;
 
 }

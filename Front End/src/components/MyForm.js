@@ -19,15 +19,13 @@ export const MyForm = () => {
   };
 
   const handleSubmit = event => {
-    document.getElementById("imagecontent").style.display = "block";
     event.preventDefault();
+
     let formlink = document.getElementById("LinkURL").value;
-
-    reversedata(formlink);
-
-    // console.log(ReverseImageData["related_search_term"]);
-    // console.log("This image is a: ", ReverseImageData.related_search_term);
-
+    if (formlink !== '') {
+      document.getElementById("imagecontent").style.display = "block";
+      reversedata(formlink);
+    }
     // You will need to update ../utils/fileUpload with the correct url for
     // where the data will be sent to.
     fileUpload({ files });

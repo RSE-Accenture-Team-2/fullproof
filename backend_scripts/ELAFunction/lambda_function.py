@@ -12,11 +12,19 @@ def lambda_handler(event, context):
         else:
             eventdata = event
         print(eventdata)
-        url = eventdata["body"]['url']
+        url = json.loads(eventdata["body"])['url']
+        print(url)
+
+        proxies = {
+            "https": "103.102.15.90:10714",
+            "http": "103.102.15.90:10714"
+        }
+
         data = {'url': url}
         base_url = 'http://fotoforensics.com'
         response = requests.post(
-            f'{ base_url }/upload-url.php', data=data, timeout=30)
+            f'{ base_url }/upload-url.php', data=data, timeout=30, proxies=proxies)
+
         print(response.status_code)
         soup = BeautifulSoup(response.text, 'html.parser')
         img_endpoint = soup.find(id="MainImg")

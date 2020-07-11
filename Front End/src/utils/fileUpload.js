@@ -7,6 +7,8 @@ export function fileUpload({ firstName, lastName, files }) {
   formData.append(firstName, firstName);
   formData.append(lastName, lastName);
 
+  // console.log("Form input...", formData);
+
   // adjust the url below with your own
   return fetch("https://my-website.com/api/file/upload", {
     method: "POST",
