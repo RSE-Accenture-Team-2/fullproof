@@ -18,6 +18,8 @@ export const MyForm = () => {
     setFiles(remainingFiles);
   };
 
+
+
   const handleSubmit = event => {
     event.preventDefault();
 

@@ -35,7 +35,7 @@ def lambda_handler(event, context):
             "statusCode": 200,
             "body": json.dumps({'ELAlink': dns})
         }
-    except Exception as e:
+    except Exception:
         return {
             "statusCode": 500,
             "body": json.dumps(traceback.format_exc())

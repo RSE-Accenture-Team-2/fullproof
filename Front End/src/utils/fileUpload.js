@@ -7,13 +7,8 @@ export function fileUpload({ firstName, lastName, files }) {
   formData.append(firstName, firstName);
   formData.append(lastName, lastName);
 
-  // console.log("Form input...", formData);
-
-  // adjust the url below with your own
-  return fetch("https://my-website.com/api/file/upload", {
+  return fetch("https://lmm2b8jjoe.execute-api.ap-southeast-2.amazonaws.com/sendForm", {
     method: "POST",
-    // if your app is storing auth tokens in a cookie include credentials
-    // credentials: 'include',
     body: formData
   })
     .then(response =>
