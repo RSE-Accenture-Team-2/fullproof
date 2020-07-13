@@ -68,13 +68,15 @@ export const MyForm = () => {
              */}
             <input type='url' id="LinkURL" className='URL' placeholder='URL'></input>
             <hr></hr>
-            <Dropzone
-              multiple
-              showPreview
-              showFileSize
-              onAddFiles={addFiles}
-              onDeleteFiles={deleteFiles}
-            />
+            <div id="Upload-Dropzone" >
+              <Dropzone
+                multiple
+                showPreview
+                showFileSize
+                onAddFiles={addFiles}
+                onDeleteFiles={deleteFiles}
+              />
+            </div>
           </FormField>
         </ThemeContext.Extend>
         <Box align="start" direction="row" gap="xsmall">

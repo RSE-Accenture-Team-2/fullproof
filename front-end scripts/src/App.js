@@ -5,6 +5,12 @@ import './index.scss';
 import { Grommet } from "grommet";
 import { MyForm } from "./components";
 
+// import Amplify, { Auth } from 'aws-amplify';
+// import awsconfig from './aws-exports';
+// Amplify.configure(awsconfig);
+
+
+
 class Logo extends React.Component {
   render() {
     return (
@@ -28,17 +34,34 @@ class DropForm extends React.Component {
 
 
 
-
-
 class App extends React.Component {
   render() {
 
+    function handletoggle1(value) {
+      let URL = document.getElementById('LinkURL');
 
+      if (value === true) {
+        URL.style.display = "block";
+      } else {
+        URL.style.display = 'none';
+      }
+      return value;
+    }
 
+    function handletoggle2(value) {
+      let URL = document.getElementById('Upload-Dropzone');
+
+      if (value === true) {
+        URL.style.display = "block";
+      } else {
+        URL.style.display = 'none';
+      }
+      return value;
+    }
 
 
     return (
-      <div className="appcontent">
+      <div className="appcontent" >
         <div className="block">
           <Logo />
           <br></br>
@@ -55,7 +78,11 @@ class App extends React.Component {
               borderColor="none"
               knobColor="white"
               name="toggle-1"
-              onToggle={e => console.log("onToggle1", e.target.checked)}
+              onToggle={function (e) {
+                console.log("onToggle1", e.target.checked)
+                handletoggle1(e.target.checked);
+              }
+              }
             />
           </div>
           <hr />
@@ -70,7 +97,11 @@ class App extends React.Component {
               borderColor="none"
               knobColor="white"
               name="toggle-2"
-              onToggle={e => console.log("onToggle2", e.target.checked)}
+              onToggle={function (e) {
+                console.log("onToggle2", e.target.checked)
+                handletoggle2(e.target.checked);
+              }
+              }
             />
             {/* window.location.href */}
           </div>
@@ -94,10 +125,6 @@ class App extends React.Component {
         <div className="block dropper">
           <DropForm />
         </div>
-
-        {/* <div>
-          <Getlinks link={link} />
-        </div> */}
         <hr />
 
         <div id='imagecontent'>
