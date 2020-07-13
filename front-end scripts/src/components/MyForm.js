@@ -30,6 +30,8 @@ export const MyForm = () => {
     }
     // You will need to update ../utils/fileUpload with the correct url for
     // where the data will be sent to.
+
+    // console.log(files)
     fileUpload({ files });
 
 

@@ -1,11 +1,19 @@
-export function fileUpload({ firstName, lastName, files }) {
+// export function fileUpload({ firstName, lastName, files }) {
+//   let formData = new FormData();
+
+//   files.forEach(name => {
+//     formData.append(name, files[name]);
+//   });  
+//   formData.append(firstName, firstName);
+//   formData.append(lastName, lastName);
+
+export function fileUpload({ files }) {
+
   let formData = new FormData();
 
-  files.forEach(name => {
-    formData.append(name, files[name]);
-  });
-  formData.append(firstName, firstName);
-  formData.append(lastName, lastName);
+  for (let i = 0; i < files.length; i++) {
+    formData.append(files[i].name, files[i]);
+  }
 
   return fetch("https://lmm2b8jjoe.execute-api.ap-southeast-2.amazonaws.com/sendForm", {
     method: "POST",
