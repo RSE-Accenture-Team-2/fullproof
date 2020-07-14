@@ -1,50 +1,97 @@
 export function fileUpload({ files }) {
-  const AWS = require('aws-sdk');
 
-  AWS.config.region = 'ap-southeast-2'; // Region
-  AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: 'ap-southeast-2:c611d523-5be5-4012-8d72-e6fb6cd7b186',
-  });
+  // console.log(files);
+  // const AWS = require('aws-sdk');
 
-  const uploadImageOnS3 = async (file) => {
-    console.log(file)
-    const BUCKET_NAME = 'tempimagestorage';
-    const IAM_USER_KEY = 'AKIAQBCSCS53TMXTUCFK';
-    const IAM_USER_SECRET = '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';
+  // // Enter copied or downloaded access ID and secret key here
+  // const ID = 'AKIAI3SSE4GI4KV6R2HA';
+  // const SECRET = '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';
 
-    function uploadToS3(file) {
-      let s3bucket = new AWS.S3({
-        accessKeyId: IAM_USER_KEY,
-        secretAccessKey: IAM_USER_SECRET,
-        Bucket: BUCKET_NAME
-      });
-      s3bucket.createBucket(function () {
+  // // The name of the bucket that you have created
+  // const BUCKET_NAME = 'alternate-bucket-reality';
 
-        var params = {
-          Bucket: BUCKET_NAME,
-          Key: file.name,
-          Body: file
-        };
-        s3bucket.upload(params, function (err, data) {
-          if (err) {
-            console.log('error in callback');
-            console.log(err);
-          }
-          console.log('success');
-          console.log(data);
-        });
-      });
-    }
+  // const s3 = new AWS.S3({
+  //   accessKeyId: ID,
+  //   secretAccessKey: SECRET
+  // });
 
-    uploadToS3(file);
+  // const params = {
+  //   Bucket: BUCKET_NAME,
+  //   CreateBucketConfiguration: {
+  //     // Set your region here
+  //     LocationConstraint: "ap-southeast-2"
+  //   }
+  // };
 
-  }
+  // s3.createBucket(params, function (err, data) {
+  //   if (err) console.log(err, err.stack);
+  //   else console.log('Bucket Created Successfully', data.Location);
+  // });
 
-
+  var formData = new FormData();
 
   for (let i = 0; i < files.length; i++) {
-    uploadImageOnS3(files[i]);
+    formData.append(files[i].name, files[i]);
+    console.log(files[i]);
   }
 
-}
+  // console.log(formData);
 
+  // // var base64data = new Buffer(formData, 'binary');
+
+
+  // function upload(f) {
+
+  //   // Setting up S3 upload parameters
+  //   const params = {
+  //     Bucket: BUCKET_NAME,
+  //     Key: 'data.jpg', // File name you want to save as in S3
+  //     Body: f
+  //   };
+
+  //   // Uploading files to the bucket
+  //   s3.upload(params, function (err, data) {
+  //     if (err) {
+  //       throw err;
+  //     }
+  //     console.log(`File uploaded successfully. ${data.Location}`);
+  //   });
+
+  // }
+
+  // upload(files[0]);
+
+
+
+
+
+
+
+
+
+  // console.log(formData);
+
+  // return fetch("https://my-website.com/api/file/upload", {
+  //   method: "POST",
+  //   // if your app is storing auth tokens in a cookie include credentials
+  //   // credentials: 'include',
+  //   body: formData
+  // })
+  //   .then(response =>
+  //     response.json().then(json => ({
+  //       status: response.status,
+  //       statusText: response.statusText,
+  //       json
+  //     }))
+  //   )
+  //   .then(({ status, statusText, json }) => {
+  //     if (status >= 400) {
+  //       // API returned a crappy response
+  //       console.log("error:", status, statusText, json);
+  //     } else {
+  //       // Upload done!
+  //       return json;
+  //     }
+  //   })
+  //   .catch(err => console.log(err));
+}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, Form, FormField, ThemeContext } from "grommet";
 import { Dropzone } from "./Dropzone";
 import { fileUpload } from "../utils";
+
 import reversedata from "../components/ReverseInfo/ReverseInfo.js";
 
 export const MyForm = () => {
@@ -32,8 +33,9 @@ export const MyForm = () => {
     // where the data will be sent to.
 
     // console.log(files)
-    fileUpload({ files });
 
+    fileUpload({ files });
+    // fileUpload({});
 
   };
 
