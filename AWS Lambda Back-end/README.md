@@ -22,3 +22,7 @@ database of reliable images to compare against.
 
 ## 
 TO NOTE: This is still under development before our first MVP, and may change.
+
+## How We Deploy Our Code
+To push our code onto AWS Lambda, we use a virtualenv to replicate and install local python3 libraries which</b >
+are not native to AWS Lambda. 
