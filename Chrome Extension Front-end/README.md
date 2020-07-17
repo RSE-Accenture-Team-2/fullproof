@@ -14,6 +14,3 @@ Then link the dist folder in Google Chrome and enjoy!
 Instead of using 'npm run build' you can also run
 ### `npm start`
 to start the extension in the browswer.
-
-
-
