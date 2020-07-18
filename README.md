@@ -1,5 +1,5 @@
 # fullproof
-The best chrome browser extension for image verification! Currently it utilises the Google Reverse Image Search Engine</b> 
+The best chrome browser extension for image verification! It utilises the Google Reverse Image Search Engine</b> 
 and ELA analysis to help determine authentic images.
 
 ## Version 1.0.0
@@ -20,6 +20,6 @@ Some of the SAD's also represent the old tech stacks we initially proposed but h
 This chrome extension could be further developed in the future, but as of now, it is an inactive project, after</b >
 the completion of the Real Skills Education: Steam Leaders Program.
 
-The features are also currently inactive as it costs money to maintain the extension's link with SerpAPI.</b >
+TMost of the features are also currently inactive as it costs money to maintain the extension's link with SerpAPI.</b >
 
 Enjoy exploring!
