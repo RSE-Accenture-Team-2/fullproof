@@ -14,8 +14,8 @@ a Google Reverse Image Search Engine Scraper:
 Our ELA Analysis of images has not yet been implemented on the backend, but there are scripts which were made</b>
 which utilises PIL and outputs an ELA image on local machines.
 
-The SAD is available to see what we proposed as further possible features for this chrome extension.</b >
-It also contains some of out current tech stack.
+The SADs are available to see what was proposed as further possible features for this chrome extension.</b >
+Some of the SAD's also represent the old tech stacks we initially proposed but had difficulty completing.</b >
 
 This chrome extension could be further developed in the future, but as of now, it is an inactive project, after</b >
 the completion of the Real Skills Education: Steam Leaders Program.
