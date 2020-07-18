@@ -17,7 +17,7 @@ The following information the extension provides are:
     - Celebrity recognition (AWS Rekognition)
     - Text Extraction (AWS Rekognition)
 
-Our ELA Analysis of images has not yet been integrated into a Lambda function to call from the from React front end</b>
+Our ELA of images has not yet been integrated into a Lambda function to call from the from React front end</b>
 however our back end python script produces ELA image conversions from a local file input and a metric for the greatest difference.</b >
 
 Reverse searches through SerpAPI are temporarily disconnected as the prototype was using a trial of the API. ELA works</b >
