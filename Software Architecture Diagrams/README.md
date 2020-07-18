@@ -13,12 +13,12 @@ Our initial assumption that there were API's available for our extension to util
 and the team needed to rethink our software design.
 
 ## MVP.png
-This is our proposed future for our extension, utilsing AWS S3 buckets to automatically trigger lambdas and AWS rekognition</b >
-for outputting ELA on images, sentiment analysis on images, celebrity recognition and metadata extraction.</b >
+This is the final software architecture we built our prototype for. It cleverly uses the AWS SDK and S3 to </b >
+automatically trigger lambdas and AWS rekognition for outputting ELA on images, celebrity recognition and metadata </b >
+extraction.</b >
 
-We wanted to propose this tech stack as it creates less of a dependency on third party services for image</b >
-verification. Using these technologies may have also led to the development of a confidence threshold,</b>
-where users get a metric on the probability that an image has been digitally manipulated.</b >
+We wanted to propose this tech stack as it creates less of a dependency on third party services for image 
+verification and this architecture is highly scalable.</b >
 
 Producing an ELA image from a upload or link has not been fully implemented, but the draft code</b >
 for it is in the repository.
