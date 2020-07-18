@@ -1,28 +1,50 @@
-# fullproof: The AWS Lambda Back-End
-These are the backend scripts for the python3 lambda functions which use different services/functions</b >
-to extract and uncover information about an image.
+# fullproof
+The best chrome browser extension for image authentication! It utilises the Google Reverse Image Search Engine,</b > 
+AWS Rekognition and Error Level Analysis so users can easily authenticate images without switching context.
+
+The Software Architecture is available to see the proposed product MVP.</b >
+
+The following information the extension provides are:
+
+    - No. of Search Results (Serp API)
+    - Top 4 Google Image Reverse Search Links (Serp API)
+    - Top 4 Related Search Keywords (Serp API)
+    - Related Search Term (Serp API)
+    - Error level analysis image conversion (Python ELA script)
+    - Greatest compression difference in an image (Python ELA script)
+    - Object + Label recognition (AWS Rekognition)
+    - Celebrity recognition (AWS Rekognition)
+    - Text Extraction (AWS Rekognition)
+
+Our ELA Analysis of images has not yet been integrated into a Lambda function to call from the from React front end</b>
+however our back end python script produces ELA image conversions from a local file input and a metric for the greatest difference.</b >
+
+Reverse searches through SerpAPI are temporarily disconnected as the prototype was using a trial of the API. ELA works</b >
+from the backend script and AWS Rekognition is fully functional however this requires access to our AWS account.</b >
+
+This chrome extension could be further developed in the future, but as of now, it is an inactive project, after</b >
+the completion of the Real Skills Education: Steam Leaders Program.</b >
+
+Enjoy exploring!
 
 ## SerpAPI Lambda Function
-This API is used to scrape Google's Image Reverse Search Engine to extract key information</b >
+This API is used to scrape Google's Image Reverse Search Engine to extract contextual information</b >
 we determined to be important for a user to have a contextual analysis on the image's use</b >
 all over the internet.
 
 ## ELA Lambda Function
 This function is used to digitally analyse a picture to determine the pixel manipulation of</b >
-an image. However in the current version of the extension, we have only managed to generate</b >
-an ELA image and a metric which a user can use to determine for themselves if an image has</b >
-been digitally edited.
+an image. In the current version of the extension, we can generate an ELA image and a metric</b >
+which a user can use to determine for themselves if an image has been digitally edited.</b >
 
-## Future Functionality
-Hopefully this extension is expanded and can calculate a confidence threshold to determine the</b >
-the likelihood of image manipulation for a better user experience. This would be likely through </b >
-expanding our features to use sentiment analysis on a picture and the context the picture is used</b >
-in, applying a ML model to determine image manipulation and utilising blockchain technology for a</b >
-database of reliable images to compare against.
+## AWS Rekogntion
+Scripts related to deep learning through are not found here as the are directly written to AWS lambdas.</b > 
 
 ## 
 TO NOTE: This is still under development before our first MVP, and may change.
 
 ## How We Deploy Our Code
 To push our code onto AWS Lambda, we use a virtualenv to replicate and install local python3 libraries which</b >
-are not native to AWS Lambda. 
+are not native to AWS Lambda. Some functions are written directly to lambda. In the front end, the app package is 
+built to a dist directory which can be installed as the extension. Alternativly running 'npm start' runs the app
+in the browser.
