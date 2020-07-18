@@ -20,8 +20,8 @@ The SADs are available to see what was proposed as further possible features for
 Some of the SAD's also represent the old tech stacks we initially proposed but had difficulty completing.</b >
 
 This chrome extension could be further developed in the future, but as of now, it is an inactive project, after</b >
-the completion of the Real Skills Education: Steam Leaders Program.
+the completion of the Real Skills Education: Steam Leaders Program.</b >
 
-Most of the features are currently inactive as the extension's link with SerpAPI is temporarily disconnected.</b >
+Most of the features are currently inactive as the backend's link with SerpAPI is temporarily disconnected.</b >
 
 Enjoy exploring!
