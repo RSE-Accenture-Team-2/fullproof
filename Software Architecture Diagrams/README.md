@@ -30,8 +30,8 @@ Mainly, we saw fit to fully investigate and implement more of AWS as it allows f
 development down the line.
 
 Not noted in the Future.png SAD but we also thought about extending our services to a web app, making it more</b >
-accessible for all, and the possibility of using blockchain technology to create a verified image database,</b >
-which really allow for more accurate image verification by comparing images to the blockchain database. 
+accessible for all, and the possibility of using blockchain technology to create a verified image database.</b >
+This could potentially allow for more accurate image verification by comparing images to the blockchain database. 
 
 
 
