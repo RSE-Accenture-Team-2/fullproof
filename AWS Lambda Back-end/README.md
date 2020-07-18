@@ -20,9 +20,9 @@ expanding our features to use sentiment analysis on a picture and the context th
 in, applying a ML model (e.g. AWS rekognition) to determine image manipulation and utilising blockchain technology for a</b >
 database of reliable images to compare against.
 
-## 
-TO NOTE: This is still under development before our first MVP, and may change.
-
 ## How We Deploy Our Code
 To push our code onto AWS Lambda, we use a virtualenv to replicate and install local python3 libraries which</b >
 are not native to AWS Lambda. 
+
+## 
+TO NOTE: This is still under development before our first MVP, and may change.
