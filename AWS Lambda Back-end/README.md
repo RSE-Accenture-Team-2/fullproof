@@ -17,7 +17,7 @@ been digitally edited.
 Hopefully this extension is expanded and can calculate a confidence threshold to determine the</b >
 the likelihood of image manipulation for a better user experience. This would be likely through </b >
 expanding our features to use sentiment analysis on a picture and the context the picture is used</b >
-in, applying a ML model to determine image manipulation and utilising blockchain technology for a</b >
+in, applying a ML model (e.g. AWS rekognition) to determine image manipulation and utilising blockchain technology for a</b >
 database of reliable images to compare against.
 
 ## 
