@@ -18,8 +18,8 @@ This is our current technology stack that we chose to implement.
 However producing an ELA image from a upload or link has not been fully implemented, but the draft code</b >
 for it is in the repository.
 
-## Future.png
-This is proposed future for our extension, utilsing more AWS features such as S3 buckets and AWS rekognition</b >
+## MVP.png
+This was the proposed future for our extension, utilsing more AWS features such as S3 buckets and AWS rekognition</b >
 for outputting ELA on images, sentiment analysis on images, celebrity recognition and metadata extraction.</b >
 
 We wanted to propose this tech stack as it creates less of a dependency on third party services for image</b >
