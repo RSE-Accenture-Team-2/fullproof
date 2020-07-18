@@ -1,5 +1,5 @@
 # fullproof: The Development of the Software
-These are all of our Software Architecture Diagrams that were made during our project.</b >
+This folder contains our origional and final Solutions Architecture for our project.</b >
 
 ## Original.png
 This was our initial proposal, but there were issues when we tried utilising this tech stack for</b >
