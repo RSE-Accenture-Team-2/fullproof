@@ -1,6 +1,6 @@
 # fullproof
-The best chrome browser extension for image verification! It utilises the Google Reverse Image Search Engine</b> 
-and ELA analysis to help determine authentic images.
+The best chrome browser extension for image verification! It utilises the Google Reverse Image Search Engine</b > 
+and ELA analysis to help a user determine authentic images.
 
 ## Version 1.0.0
 Currently this version of SerpAPI provides contextual information around an image based on SerpAPI,</b > 
