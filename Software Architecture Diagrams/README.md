@@ -7,7 +7,7 @@ our extension.
 
     - Tineye is currently too expensive to implement
     - Scraping fotoforensics was not possible due to bot detection
-    - Image metadata extractor API's did not exist
+    - Image metadata extractor APIs did not exist
 
 Our initial assumption that there were API's available for our extension to utilise was wrong</b >
 and the team needed to rethink our software design.
