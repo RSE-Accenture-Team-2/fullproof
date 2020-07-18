@@ -25,4 +25,4 @@ To push our code onto AWS Lambda, we use a virtualenv to replicate and install l
 are not native to AWS Lambda. 
 
 ## 
-TO NOTE: This is still under development before our first MVP, and may change.
+TO NOTE: This is still not fully developed as our first MVP and is subject to change.
