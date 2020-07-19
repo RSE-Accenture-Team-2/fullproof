@@ -46,5 +46,5 @@ TO NOTE: This is still under development before our first MVP, and may change.
 ## How We Deploy Our Code
 To push our code onto AWS Lambda, we use a virtualenv to replicate and install local python3 libraries which</b >
 are not native to AWS Lambda. Some functions are written directly to lambda. In the front end, the app package is 
-built to a dist directory which can be installed as the extension. Alternativly running 'npm start' runs the app
+built to a dist directory which can be installed as the extension. Alternatively running 'npm start' runs the app
 in the browser.
